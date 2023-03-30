@@ -1,0 +1,143 @@
+---
+title: "Tipos de JOIN en SQL"
+subtitle: ""
+date: "today"
+author: "Lic. Diego Medardo Saavedra García Mg. Sc."
+lang: "es"
+
+format:
+  revealjs:
+    #chalkboard: 
+      #buttons: false
+    toc: true
+    incremental: false
+    slide-number: true
+    preview-links: auto
+    logo: img/749316445319.png
+    footer: <https://hackaboss.com>
+    theme: dark
+    makeindex: true
+    multiplex: true
+    transition: fade
+    chalkboard: true #Pizarra
+    auto-stretch: false
+    smaller: false
+    scrollable: true
+    #presentation-title-slide-text-alig: left
+    presentation-slide-text-align: justify
+    menu: true
+    codeBlock: {data-trim: true}
+    execute: true
+    executeCode: true
+  pdf:
+    theme: basic
+    
+bibliography: Bibliografia.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
+editor_options: 
+  chunk_output_type: console
+---
+
+# Tipos de JOIN en SQL
+
+- Duración: 10-15 minutos
+- Objetivo: Aprender sobre la creación de tablas y los diferentes tipos de JOIN en SQL.
+- Creado por Diego Saavedra.
+
+# Tipos de JOIN
+
+- En SQL, existen varios tipos de JOIN para combinar datos de dos o más tablas. 
+
+- Estos son algunos de los tipos más comunes.
+
+## Inner Join
+
+- Combina datos de dos tablas en una nueva tabla.
+- Sólo incluye los registros que coinciden en ambas tablas.
+
+## Ejemplo de Inner Join:
+
+| Tabla 1 | Tabla 2 | Iner Join    |
+|------------|------|---------|
+| Nombre Animal | Nombre Color   | Nombre Animal Color  |
+| Juan Perro| Juan Rojo   | Juan Perro Rojo |
+| Maria Gato   | Maria Negro   | Maria Gato Negro    |
+
+## Código de Inner Join:
+```sql
+
+SELECT tabla1.nombre, tabla1.animal, tabla2.color 
+FROM tabla1 
+INNER JOIN tabla2 
+ON tabla1.nombre = tabla2.nombre;
+```
+
+## Left Join
+
+- Combina datos de dos tablas en una nueva tabla.
+- Incluye todos los registros de la tabla de la izquierda y sólo los registros que coinciden de la tabla de la derecha.
+
+## Ejemplo de Left Join:
+
+| Tabla 1 | Tabla 2 | Left Join    |
+|------------|------|---------|
+| Nombre Animal | Nombre Color   | Nombre Animal Color  |
+| Juan Perro| Juan Rojo | Juan Perro Rojo |
+| Maria Gato | NULL | Maria Gato NULL   |
+
+## Código de Left Join:
+
+```sql
+
+SELECT tabla1.nombre, tabla1.animal, tabla2.color 
+FROM tabla1 
+LEFT JOIN tabla2 
+ON tabla1.nombre = tabla2.nombre;
+```
+
+## Right Join
+
+- Combina datos de dos tablas en una nueva tabla.
+- Incluye todos los registros de la tabla de la derecha y sólo los registros que coinciden de la tabla de la izquierda.
+
+## Ejemplo de Right Join:
+
+| Tabla 1 | Tabla 2 | Righ Join    |
+|------------|------|---------|
+| Nombre Animal | Nombre Color   | Nombre Animal Color  |
+| Juan Perro| Juan Rojo | Juan Perro Rojo |
+| NULL  | Maria Negro   | Maria NULL Negro   |
+
+## Código de Right Join:
+
+```sql
+
+SELECT tabla1.nombre, tabla1.animal, tabla2.color 
+FROM tabla1 
+RIGHT JOIN tabla2 
+ON tabla1.nombre = tabla2.nombre;
+```
+## Full Join
+
+- Combina datos de dos tablas en una nueva tabla.
+- Incluye todos los registros de ambas tablas.
+
+## Ejemplo de Full Join:
+
+| Tabla 1 | Tabla 2 | Full Join    |
+|------------|------|---------|
+| Nombre Animal | Nombre Color   | Nombre Animal Color  |
+| Juan Perro| Juan Rojo | Juan Perro Rojo |
+| Maria Gato | Maria   |    |
+
+## Código de Full Join: 
+
+```sql
+SELECT tabla1.nombre, tabla1.animal, tabla2.color
+FROM tabla1
+FULL JOIN tabla2 ON tabla1.nombre = tabla2.nombre;
+```
+
+##
+
+Muchas Gracias por su atención
